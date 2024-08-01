@@ -9,6 +9,7 @@ import {
     useQuery,
   } from "@tanstack/react-query";
 
+  import "./Agate.css";
   import "./bootstrap.css";
 
 const VERSION = "0.1.0";
