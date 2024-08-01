@@ -1,4 +1,2 @@
-export function helloAnything(thing: string): string {
-    return `Hello ${thing}!`
-  }
-  export { Header } from './components/Header'
+import Agate from "./Agate.tsx";
+export default Agate;
