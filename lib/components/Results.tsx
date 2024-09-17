@@ -8,7 +8,7 @@ import {useEffect} from "react";
 
 export function Results(props: ResultsProps) {
 
-    const handleExportToCSV = () => {
+    const handleRefreshClick = () => {
       props.handleSearch()
     };
   
@@ -30,7 +30,7 @@ export function Results(props: ResultsProps) {
             className="float-end"
             size="sm"
             variant="success"
-            onClick={handleExportToCSV}
+            onClick={handleRefreshClick}
           >
             Refresh
           </Button>

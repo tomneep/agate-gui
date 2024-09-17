@@ -27,7 +27,7 @@ export function Data(props: DataProps) {
     const handleSearch = () => {
       // If search parameters have not changed, a refetch can be triggered
       // But only if the previous fetch has completed
-        refetchResults();
+        if(props.project) refetchResults();
     };
   
     return (

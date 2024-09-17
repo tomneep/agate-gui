@@ -7,6 +7,6 @@ import "./font.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Agate httpPathHandler={httpPathHandler} />
+    <Agate httpPathHandler={httpPathHandler} extVersion="Mock" />
   </React.StrictMode>
 );
