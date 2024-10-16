@@ -16,7 +16,7 @@ function status(s: string):string {
         return "Metadata checks failed";
       }
       case 'FV': {
-        return "Validation checks fail";
+        return "Validation checks failed";
       }
       case 'SU': {
         return "Success";
@@ -44,9 +44,8 @@ function status(s: string):string {
       <Table striped bordered hover responsive size="sm">
         <thead>
           <tr>
-            <th key={"project"} title={"project"}> Project</th>
+            <th key={"name"} title={"name"}> name</th>
             <th key={"platform"} title={"platform"}> Platform</th>
-            <th key={"site"} title={"site"}>Site </th>
             <th key={"status"} title={"status"}>Status </th>
             <th key={"is_published"} title={"is_published"}>Published </th>
             <th key={"is_test_attempt"} title={"is_test_attempt"}>Test Attempt</th>
@@ -55,10 +54,9 @@ function status(s: string):string {
         <tbody>
           {data.map((row, index) => (
             <tr key={index}>
-                <td key={"project"}>{row.fields.project}</td>
+                <td key={"name"}>{row.fields.name}</td>
                 <td key={"platform"}>{row.fields.platform}</td>
-                <td key={"site"}>{row.fields.site}</td>
-                <td key={"status"}>{status(row.fields.status)}<div id="myProgress">
+                <td key={"status"}  title={row.fields.error_message}>{status(row.fields.status)}<div id="myProgress">
                   <div id="myBar" className={row.fields.status}></div>
                   </div></td>
                 <td key={"is_published"}>{bool_icon(row.fields.is_published)}</td>

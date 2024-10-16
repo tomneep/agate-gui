@@ -8,6 +8,7 @@ export interface IngestionItem {
     project:string;
     platform:string;
     site:string;
+    name:string;
     run_index:string;
     run_id:string;
     is_published:boolean;
