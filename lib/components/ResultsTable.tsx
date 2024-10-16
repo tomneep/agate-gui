@@ -44,8 +44,8 @@ function status(s: string):string {
       <Table striped bordered hover responsive size="sm">
         <thead>
           <tr>
-            <th key={"name"} title={"name"}> name</th>
-            <th key={"platform"} title={"platform"}> Platform</th>
+            <th key={"name"} title={"name"}>Name</th>
+            <th key={"platform"} title={"platform"}>Platform</th>
             <th key={"status"} title={"status"}>Status </th>
             <th key={"is_published"} title={"is_published"}>Published </th>
             <th key={"is_test_attempt"} title={"is_test_attempt"}>Test Attempt</th>

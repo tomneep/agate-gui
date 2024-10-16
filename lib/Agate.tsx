@@ -12,7 +12,7 @@ import {
   import "./Agate.css";
   import "./bootstrap.css";
 
-const VERSION = "0.1.0";
+const VERSION = "0.1.5";
 
 function App(props: AgateProps) {
     const [darkMode, setDarkMode] = useState(false);
