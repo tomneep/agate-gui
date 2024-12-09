@@ -1,6 +1,7 @@
 
 export interface IngestionItem {
     fields: IngestionFields
+    pk: string
   }
   
   interface IngestionFields {

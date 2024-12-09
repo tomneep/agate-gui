@@ -33,11 +33,21 @@ function status(s: string):string {
   }
   
   
+  
   export function ResultsTable({
-    data
+    httpPathHandler,
+    data,
+    handleRefreshClick
   }: {
+    httpPathHandler: (path: string) => Promise<Response>;
     data: IngestionItem[];
+    handleRefreshClick: ()=>void
   }) {
+    
+  function archive(uuid: string) {
+    httpPathHandler(`archive/${uuid}`)
+    .then(()=>handleRefreshClick())
+  }
   
   
     return (
@@ -61,6 +71,7 @@ function status(s: string):string {
                   </div></td>
                 <td key={"is_published"}>{bool_icon(row.fields.is_published)}</td>
                 <td key={"is_test_attempt"}>{bool_icon(row.fields.is_test_attempt)}</td>
+                <td><button value = "Archive" onClick={ () => archive(row.pk) }>Archive</button></td>
             </tr>
           ))}
         </tbody>
