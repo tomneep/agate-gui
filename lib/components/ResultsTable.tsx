@@ -64,7 +64,7 @@ function status(s: string):string {
         <tbody>
           {data.map((row, index) => (
             <tr key={index}>
-                <td key={"name"}>{row.fields.name}</td>
+                <td key={"name"}>{row.fields.name +'('+row.pk.slice(-5)+')'}</td>
                 <td key={"platform"}>{row.fields.platform}</td>
                 <td key={"status"}  title={row.fields.error_message}>{status(row.fields.status)}<div id="myProgress">
                   <div id="myBar" className={row.fields.status}></div>
