@@ -40,7 +40,7 @@ export function Results(props: ResultsProps) {
             <Alert variant="danger">Error: {props.resultError.message}</Alert>
           ) : (
             <ResultsTable
-                data={props.resultData || []} httpPathHandler= {props.httpPathHandler} handleRefreshClick={props.handleSearch}           
+                data={props.resultData?.results || []} httpPathHandler= {props.httpPathHandler} handleRefreshClick={props.handleSearch}           
             />
           )}
         </Container>

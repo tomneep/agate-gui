@@ -1,10 +1,11 @@
 
-export interface IngestionItem {
-    fields: IngestionFields
-    pk: string
+export interface IngestionResponse {
+    next: string
+    previous: string
+    results: IngestionItem[]
   }
   
-  interface IngestionFields {
+  export interface IngestionItem {
     uuid:string;
     project:string;
     platform:string;

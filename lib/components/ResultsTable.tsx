@@ -64,14 +64,14 @@ function status(s: string):string {
         <tbody>
           {data.map((row, index) => (
             <tr key={index}>
-                <td key={"name"}>{row.fields.name +'('+row.pk.slice(-5)+')'}</td>
-                <td key={"platform"}>{row.fields.platform}</td>
-                <td key={"status"}  title={row.fields.error_message}>{status(row.fields.status)}<div id="myProgress">
-                  <div id="myBar" className={row.fields.status}></div>
+                <td key={"name"}>{row.name +'('+row.uuid.slice(-5)+')'}</td>
+                <td key={"platform"}>{row.platform}</td>
+                <td key={"status"}  title={row.error_message}>{status(row.status)}<div id="myProgress">
+                  <div id="myBar" className={row.status}></div>
                   </div></td>
-                <td key={"is_published"}>{bool_icon(row.fields.is_published)}</td>
-                <td key={"is_test_attempt"}>{bool_icon(row.fields.is_test_attempt)}</td>
-                <td><button value = "Archive" onClick={ () => archive(row.pk) }>Archive</button></td>
+                <td key={"is_published"}>{bool_icon(row.is_published)}</td>
+                <td key={"is_test_attempt"}>{bool_icon(row.is_test_attempt)}</td>
+                <td><button value = "Archive" onClick={ () => archive(row.uuid) }>Archive</button></td>
             </tr>
           ))}
         </tbody>

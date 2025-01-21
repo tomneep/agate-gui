@@ -17,9 +17,8 @@ export function Data(props: DataProps) {
       queryKey: ["results", props.project],
       queryFn: async () => {
         return props
-          .httpPathHandler(`ingestion/${props.project}/`)
-          .then((response) => response.json())
-          .then((string) => JSON.parse(string));
+          .httpPathHandler(`ingestion/?project=${props.project}`)
+          .then((response) => response.json());
       },
       enabled: !!props.project,
     });

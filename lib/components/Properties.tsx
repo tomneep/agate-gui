@@ -1,4 +1,4 @@
-import {IngestionItem} from "./IngestionItem"
+import {IngestionResponse} from "./IngestionItem"
 
 export interface AgateProps {
     httpPathHandler: (path: string) => Promise<Response>;
@@ -18,6 +18,6 @@ export interface AgateProps {
   
   export interface ResultsProps extends SearchProps {
     resultError: Error | null;
-    resultData?: IngestionItem[];
+    resultData?: IngestionResponse;
   }
   
