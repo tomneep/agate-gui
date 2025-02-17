@@ -48,6 +48,12 @@ function status(s: string):string {
     httpPathHandler(`archive/${uuid}`)
     .then(()=>handleRefreshClick())
   }
+
+  
+  function delete_record(uuid: string) {
+    httpPathHandler(`delete/${uuid}`)
+    .then(()=>handleRefreshClick())
+  }
   
   
     return (
@@ -72,6 +78,7 @@ function status(s: string):string {
                 <td key={"is_published"}>{bool_icon(row.is_published)}</td>
                 <td key={"is_test_attempt"}>{bool_icon(row.is_test_attempt)}</td>
                 <td><button value = "Archive" onClick={ () => archive(row.uuid) }>Archive</button></td>
+                <td><button value = "Delete" onClick={ () => delete_record(row.uuid) }>Delete</button></td>
             </tr>
           ))}
         </tbody>
