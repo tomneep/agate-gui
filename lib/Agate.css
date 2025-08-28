@@ -1,54 +1,50 @@
+.agate-progress-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+}
 
-#myProgress {
-    width: 100%;
-    background-color: lightgrey;
-  }
-  
-  #myBar {
-    width: 0%;
-    height: 10px;
-    background-color: green;
-  }
-  
-  
-  #myBar.US {
-    width: 0%;
-    background-color: green;
-  }
-  
-  #myBar.MD {
-    width: 30%;
-    background-color: green;
-  }
-  
-  #myBar.VD {
-    width: 60%;
-    background-color: green;
-  }
-  
-  #myBar.FM {
-    width: 100%;
-    background-color: red;
-  }
-  
-  #myBar.FV {
-    width: 100%;
-    background-color: red;
-  }
-  
-  #myBar.SU {
-    width: 100%;
-    background-color: green;
-  }
+.agate-progress-label {
+  font-size: 0.8rem;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
 
-  .agate-row-button {
-      background-color: #e0e0e0;
-      color: black;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 2px 6px;
-      font-size: 0.8rem;
-      line-height: 1;
-      cursor: pointer;
-      margin: 2px
-  }
+.agate-progress-bar {
+  width: 100%;
+  background-color: var(--bs-border-color);   /* unfilled portion */
+  height: 6px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;       /* ensures fill sits inside */
+}
+
+.agate-progress-fill {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Status-based widths/colors */
+.agate-progress-fill.US { width: 0%; background: gray; }
+.agate-progress-fill.MD { width: 33%; background: var(--bs-green); }
+.agate-progress-fill.VD { width: 66%; background: var(--bs-green); }
+.agate-progress-fill.FM { width: 100%; background: var(--bs-red); }
+.agate-progress-fill.FV { width: 100%; background: var(--bs-red); }
+.agate-progress-fill.SU { width: 100%; background: var(--bs-green); }
+
+
+.agate-row-button {
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-emphasis-color);
+  border: 1px solid var(--bs-border-color);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+  margin: 2px
+}

@@ -73,12 +73,12 @@ export function ResultsTable({
         tooltipField: "error_message",
         cellRenderer: (params: any) => {
           return (
-            <div>
-              {status(params.value)}
-              <div id="myProgress">
-                <div id="myBar" className={params.value}></div>
-              </div>
-            </div>
+            <div className="agate-progress-wrapper">
+              <span className="agate-progress-label">{status(params.value)}</span>
+                <div className="agate-progress-bar">
+                  <div className={`agate-progress-fill ${params.value}`} />
+                </div>
+          </div>
           );
         },
       },
@@ -119,7 +119,7 @@ export function ResultsTable({
   return (
     // TODO: Set the height to something determined by the parent
     <div style={{ height: "80vh", width: "100%" }}>
-    <AgGridReact rowData={data} columnDefs={columnDefs} pagination={true} theme={themeQuartz}/>
+    <AgGridReact rowData={data} columnDefs={columnDefs} rowHeight={40} pagination={true} theme={themeQuartz}/>
     </div>
   );
 }
