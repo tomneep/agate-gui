@@ -100,17 +100,17 @@ export function ResultsTable({
         flex: 1.5,
         cellRenderer: (params: any) => (
           <div>
-		<button
-	    className="agate-row-button"
-	    onClick={() => archive(params.value)}>Archive
-	    </button>
-		<button
-	    className="agate-row-button"
-	    onClick={() => delete_record(params.value)}>Delete
-	    </button>
+    <button
+      className="agate-row-button"
+      onClick={() => archive(params.value)}>Archive
+      </button>
+    <button
+      className="agate-row-button"
+      onClick={() => delete_record(params.value)}>Delete
+      </button>
           </div>
         ),
-	  cellStyle: { display: "flex", justifyContent: "left", alignItems: "center"},
+    cellStyle: { display: "flex", justifyContent: "left", alignItems: "center"},
       },
     ],
     [archive, delete_record]
@@ -119,7 +119,7 @@ export function ResultsTable({
   return (
     // TODO: Set the height to something determined by the parent
     <div style={{ height: "80vh", width: "100%" }}>
-	  <AgGridReact rowData={data} columnDefs={columnDefs} pagination={true} theme={themeQuartz}/>
+    <AgGridReact rowData={data} columnDefs={columnDefs} pagination={true} theme={themeQuartz}/>
     </div>
   );
 }
