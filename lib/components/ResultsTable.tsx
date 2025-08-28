@@ -33,9 +33,9 @@ function bool_icon(b: boolean): string {
 }
 
 export function ResultsTable({
-  httpPathHandler,
-  data,
-  handleRefreshClick,
+    httpPathHandler,
+    data,
+    handleRefreshClick,
 }: {
   httpPathHandler: (path: string) => Promise<Response>;
   data: IngestionItem[];
@@ -99,7 +99,7 @@ export function ResultsTable({
         field: "uuid",
         flex: 1.5,
         cellRenderer: (params: any) => (
-          <div style={{ display: "flex", gap: "1rem" }}>
+          <div>
 		<button
 	    className="agate-row-button"
 	    onClick={() => archive(params.value)}>Archive
@@ -110,14 +110,15 @@ export function ResultsTable({
 	    </button>
           </div>
         ),
-	  cellStyle: { display: "flex", justifyContent: "left", alignItems: "center", gap: "0.5rem" },
+	  cellStyle: { display: "flex", justifyContent: "left", alignItems: "center"},
       },
     ],
     [archive, delete_record]
   );
 
   return (
-    <div className="ag-theme-alpine" style={{ height: 500, width: "100%" }}>
+    // TODO: Set the height to something determined by the parent
+    <div style={{ height: "80vh", width: "100%" }}>
 	  <AgGridReact rowData={data} columnDefs={columnDefs} pagination={true} theme={themeQuartz}/>
     </div>
   );

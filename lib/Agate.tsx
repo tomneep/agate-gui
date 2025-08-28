@@ -49,6 +49,8 @@ function App(props: AgateProps) {
       const htmlElement = document.querySelector("html");
       htmlElement?.setAttribute("data-bs-theme", !darkMode ? "dark" : "light");
       setDarkMode(!darkMode);
+      const bodyElement = document.querySelector("body");
+      bodyElement?.setAttribute("data-ag-theme-mode", !darkMode ? "dark" : "light");
     };
   
   
