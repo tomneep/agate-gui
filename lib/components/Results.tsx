@@ -25,15 +25,16 @@ export function Results(props: ResultsProps) {
     return (
       <Card>
         <Card.Header>
-          <span>Ingestion</span>
+          <Card.Title>Ingestion
           <Button
             className="float-end"
             size="sm"
             variant="success"
             onClick={handleRefreshClick}
-          >
+          >            
             Refresh
           </Button>
+          </Card.Title>
         </Card.Header>
         <Container fluid className="table-panel p-2">
           {props.resultError ? (
