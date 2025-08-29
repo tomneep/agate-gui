@@ -22,7 +22,8 @@ export function Results(props: ResultsProps) {
       });
   
     return (
-      <Card className="d-flex flex-column" style={{height: "90vh"}}>
+      // We set the height of the card to be the view port width minus a little bit (worked out empirically) for the navbar
+      <Card style={{ height: "calc(100vh - 4.5em)" }}>
         <Card.Header>
           <Card.Title>Ingestion
           <Button
