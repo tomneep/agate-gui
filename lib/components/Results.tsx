@@ -2,7 +2,6 @@ import { ResultsProps } from "./Properties";
 import { ResultsTable } from "./ResultsTable";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import {useEffect} from "react";
 
@@ -23,7 +22,7 @@ export function Results(props: ResultsProps) {
       });
   
     return (
-      <Card>
+      <Card className="d-flex flex-column" style={{height: "90vh"}}>
         <Card.Header>
           <Card.Title>Ingestion
           <Button
@@ -36,7 +35,7 @@ export function Results(props: ResultsProps) {
           </Button>
           </Card.Title>
         </Card.Header>
-        <Container fluid className="table-panel p-2">
+        <Card.Body >
           {props.resultError ? (
             <Alert variant="danger">Error: {props.resultError.message}</Alert>
           ) : (
@@ -44,7 +43,7 @@ export function Results(props: ResultsProps) {
                 data={props.resultData?.results || []} httpPathHandler= {props.httpPathHandler} handleRefreshClick={props.handleSearch}           
             />
           )}
-        </Container>
+        </Card.Body>
         <Card.Footer>
         </Card.Footer>
       </Card>

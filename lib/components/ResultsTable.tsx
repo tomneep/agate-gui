@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from "react";
+import { useMemo, useCallback } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { ModuleRegistry } from "ag-grid-community";
 import { AllCommunityModule } from "ag-grid-community";
@@ -117,9 +117,13 @@ export function ResultsTable({
   );
 
   return (
-    // TODO: Set the height to something determined by the parent
-    <div style={{ height: "80vh", width: "100%" }}>
-      <AgGridReact rowData={data} columnDefs={columnDefs} rowHeight={40} pagination={true} theme={themeQuartz} />
-    </div>
+    <AgGridReact
+      rowData={data}
+      columnDefs={columnDefs}
+      rowHeight={40}
+      pagination={true}
+      theme={themeQuartz}
+      paginationAutoPageSize={true}
+    />
   );
 }
