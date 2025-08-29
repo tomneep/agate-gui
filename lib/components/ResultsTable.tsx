@@ -102,14 +102,31 @@ export function ResultsTable({
           <div>
             <button
               className="agate-row-button"
+              tabIndex={0} // To allow focussing with keyboard
               onClick={() => archive(params.value)}>Archive
             </button>
             <button
               className="agate-row-button"
+              tabIndex={0} // To allow focussing with keyboard
               onClick={() => delete_record(params.value)}>Delete
             </button>
           </div>
         ),
+        // We need to tell AG Grid to not supress any tabs for this
+        // column so that we can focus on the buttons inside it with
+        // the keyboard
+        suppressKeyboardEvent: (params: any) => {
+          const e = params.event as KeyboardEvent;
+          const key = e.key;
+
+          // Allow arrow keys to move focus even if a button inside is focused
+          if (key === "ArrowLeft" || key === "ArrowRight" || key === "ArrowUp" || key === "ArrowDown") {
+            return false; // don't suppress → let AG Grid handle it
+          }
+
+          // Let other keys (Enter, Space) behave normally inside the button
+          return true;
+        },
         cellStyle: { display: "flex", justifyContent: "left", alignItems: "center" },
       },
     ],
