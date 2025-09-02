@@ -25,7 +25,7 @@ function HeaderVersion({
     <Navbar.Text>
       {label}:{" "}
       {version ? (
-        <code className="text-success">{`v${version}`}</code>
+        <code className="text-info">{`v${version}`}</code>
       ) : (
         <span className="text-light">None</span>
       )}
