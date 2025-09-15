@@ -1,8 +1,6 @@
 import { useMemo, useCallback } from "react";
-import { AgGridReact } from "ag-grid-react";
-import { ModuleRegistry } from "ag-grid-community";
-import { AllCommunityModule } from "ag-grid-community";
-import { themeQuartz } from 'ag-grid-community';
+import { AgGridReact, CustomCellRendererProps} from "ag-grid-react";
+import { AllCommunityModule, ColDef, ModuleRegistry, SuppressKeyboardEventParams, themeQuartz } from "ag-grid-community";
 
 import { IngestionItem } from "./IngestionItem";
 
@@ -56,13 +54,13 @@ export function ResultsTable({
   );
 
   // Define AG Grid columns
-  const columnDefs = useMemo(
+    const columnDefs: ColDef[] = useMemo(
     () => [
       {
         headerName: "Name",
         field: "name",
         flex: 1,
-        cellRenderer: (params: any) =>
+        cellRenderer: (params: CustomCellRendererProps) =>
           `${params.data.name} (${params.data.uuid.slice(-5)})`,
       },
       { headerName: "Platform", field: "platform", flex: 1 },
@@ -71,7 +69,7 @@ export function ResultsTable({
         field: "status",
         flex: 1.5,
         tooltipField: "error_message",
-        cellRenderer: (params: any) => {
+        cellRenderer: (params: CustomCellRendererProps) => {
           return (
             <div className="agate-progress-wrapper">
               <span className="agate-progress-label">{status(params.value)}</span>
@@ -86,19 +84,19 @@ export function ResultsTable({
         headerName: "Published",
         field: "is_published",
         flex: 1,
-        cellRenderer: (params: any) => bool_icon(params.value),
+        cellRenderer: (params: CustomCellRendererProps) => bool_icon(params.value),
       },
       {
         headerName: "Test Attempt",
         field: "is_test_attempt",
         flex: 1,
-        cellRenderer: (params: any) => bool_icon(params.value),
+        cellRenderer: (params: CustomCellRendererProps) => bool_icon(params.value),
       },
       {
         headerName: "Actions",
         field: "uuid",
         flex: 1.5,
-        cellRenderer: (params: any) => (
+        cellRenderer: (params: CustomCellRendererProps) => (
           <div>
             <button
               className="agate-row-button"
@@ -115,7 +113,7 @@ export function ResultsTable({
         // We need to tell AG Grid to not supress any tabs for this
         // column so that we can focus on the buttons inside it with
         // the keyboard
-        suppressKeyboardEvent: (params: any) => {
+        suppressKeyboardEvent: (params: SuppressKeyboardEventParams) => {
           const e = params.event as KeyboardEvent;
           const key = e.key;
 
