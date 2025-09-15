@@ -134,7 +134,8 @@ export function ResultsTable({
   );
 
   return (
-    <AgGridReact
+      <AgGridReact
+      className="agate-table"
       rowData={data}
       columnDefs={columnDefs}
       rowHeight={40}
