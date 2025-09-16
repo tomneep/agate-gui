@@ -2,7 +2,6 @@ import { ResultsProps } from "./Properties";
 import { ResultsTable } from "./ResultsTable";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import {useEffect} from "react";
 
@@ -11,21 +10,22 @@ export function Results(props: ResultsProps) {
     const handleRefreshClick = () => {
       props.handleSearch()
     };
-  
+
     useEffect(() => {
           //Implementing the setInterval method
           const interval = setInterval(() => {
             props.handleSearch();
           }, 10000);
-   
+
           //Clearing the interval
           return () => clearInterval(interval);
       });
-  
+
     return (
-      <Card>
+      // We set the height of the card to be the view port width minus a little bit (worked out empirically) for the navbar
+      <Card style={{ height: "calc(100vh - 4.5em)" }}>
         <Card.Header>
-          <span>Ingestion</span>
+          <Card.Title>Ingestion
           <Button
             className="float-end"
             size="sm"
@@ -34,19 +34,19 @@ export function Results(props: ResultsProps) {
           >
             Refresh
           </Button>
+          </Card.Title>
         </Card.Header>
-        <Container fluid className="table-panel p-2">
+        <Card.Body >
           {props.resultError ? (
             <Alert variant="danger">Error: {props.resultError.message}</Alert>
           ) : (
             <ResultsTable
-                data={props.resultData?.results || []} httpPathHandler= {props.httpPathHandler} handleRefreshClick={props.handleSearch}           
+                data={props.resultData?.results || []} httpPathHandler= {props.httpPathHandler} handleRefreshClick={props.handleSearch}
             />
           )}
-        </Container>
+        </Card.Body>
         <Card.Footer>
         </Card.Footer>
       </Card>
     );
   }
-  
