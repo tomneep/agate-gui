@@ -22,7 +22,6 @@ export function Results(props: ResultsProps) {
       });
 
     return (
-      // We set the height of the card to be the view port width minus a little bit (worked out empirically) for the navbar
       <Card className="flex-grow-1">
         <Card.Header>
           <Card.Title>Ingestion
