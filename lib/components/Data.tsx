@@ -30,7 +30,7 @@ export function Data(props: DataProps) {
     };
   
     return (
-      <Container fluid className="g-2">
+      <Container fluid className="g-2 d-flex h-100">
         <Stack gap={2}>
           <Results
             {...props}

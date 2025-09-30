@@ -54,7 +54,7 @@ function App(props: AgateProps) {
   
   
     return (
-      <Stack gap={2} className="Agate">
+      <Stack gap={2} className="Agate h-100">
       <Header
         {...props}
         projectName={project}
@@ -90,4 +90,3 @@ function App(props: AgateProps) {
   }
   
   export default Agate;
-  
