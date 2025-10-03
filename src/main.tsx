@@ -7,6 +7,8 @@ import "./font.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Agate httpPathHandler={httpPathHandler} extVersion="Mock" />
+    <div style={{ height: "100vh" }}>
+      <Agate httpPathHandler={httpPathHandler} extVersion="Mock" />
+    </div>
   </React.StrictMode>
 );
