@@ -1,6 +1,29 @@
 {
   "name": "climb-agate-gui",
-  "version": "0.2.0",
+  "version": "0.2.1",
+  "license": "MIT",
+  "homepage": "https://github.com/CLIMB-TRE/agate-gui",
+  "bugs": {
+    "url": "https://github.com/CLIMB-TRE/agate-gui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CLIMB-TRE/agate-gui"
+  },
+  "contributors": [
+    {
+      "name": "Neil Butcher",
+      "email": "n.a.butcher@bham.ac.uk"
+    },
+    {
+      "name": "Thomas Brier",
+      "email": "t.o.brier@bham.ac.uk"
+    },
+    {
+      "name": "Tom Neep",
+      "email": "t.j.neep@bham.ac.uk"
+    }
+  ],
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
