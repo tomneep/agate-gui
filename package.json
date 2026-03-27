@@ -5,6 +5,10 @@
   "bugs": {
     "url": "https://github.com/CLIMB-TRE/agate-gui/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CLIMB-TRE/agate-gui"
+  },
   "contributors": [
     {
       "name": "Neil Butcher",
